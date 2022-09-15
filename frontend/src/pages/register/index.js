@@ -26,7 +26,7 @@ const Register = () => {
                 setFormError({ ...formError, passwordFail: true });
                 return;
             }
-            const response = await axios.post('http://127.0.0.1:8000/register',
+            const response = await axios.post('/register',
                 {
                     email: email,
                     password: password1
@@ -38,7 +38,7 @@ const Register = () => {
             }
             setFormError({ ...formError, registrationFail: true });
         } catch (err) {
-            toast.error(err?.response?.data?.detail[0].msg);
+            toast.error(err?.response?.data?.detail || err?.response?.data?.detail[0].msg);
         }
     }
 

@@ -46,7 +46,7 @@ const Home = () => {
                 return;
             }
             toast.error('Fail to update Profile');
-        } catch (err) { toast.error(err?.response?.data?.detail[0]?.msg) }
+        } catch (err) { toast.error(err?.response?.data?.detail || err?.response?.data?.detail[0].msg) }
     }
 
     const secondaryInfoSubmit = async e => {

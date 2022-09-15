@@ -48,7 +48,7 @@ const Project = () => {
                 return;
             }
             toast.error('Fail to Add Project');
-        } catch (err) { console.log(err) }
+        } catch (err) { toast.error(err?.response?.data?.detail || err?.response?.data?.detail[0].msg) }
     }
 
 
