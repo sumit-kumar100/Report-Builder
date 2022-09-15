@@ -1,6 +1,5 @@
-# Portfolio(https://profile-x.web.app/)
+# Portfolio  https://profile-x.web.app/ 
 
-# HOSTED :- https://profile-x.web.app/
 
 # Backend Setup
 
