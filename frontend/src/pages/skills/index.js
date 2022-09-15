@@ -80,7 +80,7 @@ const Skills = () => {
                     </span>
                     <div className="w-10/12 md:w-3/5">
                         <ReactSearchAutocomplete
-                            items={skills}
+                            items={skills || []}
                             onSelect={handleOnSelect}
                             autoFocus
                             formatResult={formatResult}

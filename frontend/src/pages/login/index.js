@@ -1,10 +1,8 @@
 import axios from 'axios'
 import { useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Login = () => {
-
-    const navigate = useNavigate()
 
     const [loginForm, setLoginForm] = useState({
         username: '',
@@ -25,7 +23,7 @@ const Login = () => {
             if (response?.data?.access_token && response?.data?.refresh_token) {
                 localStorage.setItem('access_token', response?.data?.access_token);
                 localStorage.setItem('refresh_token', response?.data?.refresh_token);
-                navigate("/", { replace: true });
+                window.location.reload();
                 return;
             }
         }

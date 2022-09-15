@@ -154,7 +154,7 @@ const Project = () => {
                                 <span className="leading-7 text-sm text-pink-600">Add Project Skill</span>
                                 <Multiselect
                                     required={true}
-                                    options={data?.skills}
+                                    options={data?.skills || []}
                                     onSelect={handleSkill}
                                     onRemove={handleSkill}
                                     displayValue="name"
