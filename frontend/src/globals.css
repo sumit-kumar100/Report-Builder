@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.searchWrapper {
+    margin-top: 8px;
+    padding: 8px 20px !important;
+}
+
+.k-pdf-export .about-me {
+    margin: 0px;
+    padding: 0px;
+}
+
+.k-pdf-export .about-me-text {
+    font-size: 14px;
+}
+
+.k-pdf-export .custom-text {
+    font-size: 10px;
+}
+
+.k-pdf-export .custom-header {
+    padding: 0px 0px 10px 0px;
+
+}
+
+.k-pdf-export .skill-padding {
+    padding: 7.5px;
+}
+
+.k-pdf-export .skill-y-padding {
+    padding: 0px;
+}
+
+.k-pdf-export .project-heading {
+    padding: 0px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.k-pdf-export section {
+    padding: 20px;
+}
