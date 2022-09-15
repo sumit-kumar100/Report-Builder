@@ -9,10 +9,13 @@ const Login = () => {
         password: ''
     })
 
+    const [pending, setPending] = useState(false)
+
     const [formError, setFormError] = useState(false)
 
     const handleSubmit = async e => {
         e?.preventDefault();
+        setPending(true)
         try {
             let formData = new FormData();
             formData.append('username', loginForm.username);
@@ -23,11 +26,13 @@ const Login = () => {
             if (response?.data?.access_token && response?.data?.refresh_token) {
                 localStorage.setItem('access_token', response?.data?.access_token);
                 localStorage.setItem('refresh_token', response?.data?.refresh_token);
+                setPending(false)
                 window.location.reload();
                 return;
             }
         }
         catch (err) { setFormError(true) }
+        setPending(false)
     }
 
     const handleChange = e => setLoginForm({ ...loginForm, [e.target.name]: e.target.value })
@@ -76,7 +81,7 @@ const Login = () => {
                                     Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
                                 </span>
                             </div>
-                            <button type="submit" className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Sign in</button>
+                            <button type="submit" disabled={pending} className={`w-full text-white ${!pending ? "bg-pink-600" : "bg-pink-300"} ${!pending ? "hover:bg-pink-700" : null} focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800`}>Sign in</button>
                             <p className="text-sm text-center font-light text-gray-500 dark:text-gray-400">
                                 Don’t have an account yet ?
                                 <NavLink

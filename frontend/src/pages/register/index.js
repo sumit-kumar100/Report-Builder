@@ -18,12 +18,18 @@ const Register = () => {
         passwordFail: false
     });
 
+
+    const [pending, setPending] = useState(false)
+
+
     const handleSubmit = async e => {
         e?.preventDefault()
+        setPending(true)
         try {
             const { email, password1, password2 } = registerForm
             if (password1 !== password2) {
                 setFormError({ ...formError, passwordFail: true });
+                setPending(false)
                 return;
             }
             const response = await axios.post('/register',
@@ -34,12 +40,14 @@ const Register = () => {
             )
             if (response?.data?.success) {
                 navigate("/login", { replace: true });
+                setPending(false)
                 return;
             }
             setFormError({ ...formError, registrationFail: true });
         } catch (err) {
             toast.error(err?.response?.data?.detail || err?.response?.data?.detail[0].msg);
         }
+        setPending(false)
     }
 
     const handleChange = e => setRegisterForm({ ...registerForm, [e.target.name]: e.target.value })
@@ -105,12 +113,7 @@ const Register = () => {
                                     Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
                                 </span>
                             </div>
-                            <button
-                                type="submit"
-                                className="w-full text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
-                            >
-                                Sign in
-                            </button>
+                            <button type="submit" disabled={pending} className={`w-full text-white ${!pending ? "bg-pink-600" : "bg-pink-300"} ${!pending ? "hover:bg-pink-700" : null} focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800`}>Register</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
                                 Already have an account yet ?
                                 <NavLink
