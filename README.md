@@ -25,7 +25,7 @@ Without Docker
 <img src="test-preview.png" width="800" height="450">
 
 
-<img src="preview1.png" width="800" height="450">
+<img src="preview.png" width="800" height="450">
 
 
 <img src="preview2.png" width="800" height="450">
