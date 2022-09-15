@@ -19,3 +19,5 @@ Without Docker
 1. Open frontend folder.
 2. RUN COMMAND :- yarn install
 3. START SERVER :- yarn start
+
+<img src="test-preview.png" width="800" height="450">
