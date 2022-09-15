@@ -3,9 +3,9 @@
 # Backend Setup
 
 With Docker
-1. Install docker and docker compose.
-2. Open backend folder.
-3. RUN COMMAND :- docker compose up.
+1. Install docker and docker compose
+2. Open backend folder
+3. RUN COMMAND :- docker compose up
 
 Without Docker
 1. Create virtual environment ( Optional )
