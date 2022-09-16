@@ -22,7 +22,7 @@ Without Docker
 
 # Preview Images
 
-<img src="database.jpeg" width="800" height="500">
+<img src="database.jpeg" width="800" height="600">
 
 <img src="test-preview.png" width="800" height="450">
 
